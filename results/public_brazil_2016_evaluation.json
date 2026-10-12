@@ -1,0 +1,214 @@
+{
+  "dataset_key": "public_brazil_2016",
+  "dataset_label": "Brazil public appointments (2016)",
+  "source": "Joni Hoppen, Kaggle Medical Appointment No Shows; CC BY-NC-SA 4.0.",
+  "dataset_sha256": "9132d3e7d0246617df9041d3764f20ad6f08e7b0d9f0997fa254fc5e52eda27d",
+  "audit": {
+    "rows_received": 110527,
+    "rows_modelled": 110526,
+    "rows_removed": 1,
+    "duplicate_ids": 0,
+    "invalid_rows": 1,
+    "missing_cells_raw": 0,
+    "target_missing_raw": 0,
+    "target_missing_after_validation": 0,
+    "no_show_rate": 0.20193438647919945,
+    "unique_groups": 62298,
+    "columns_received": 14,
+    "negative_lead_intervals": 38567,
+    "patient_identifier_used_for_split_only": true,
+    "model_input_columns": 12
+  },
+  "split": {
+    "train_rows": 88420,
+    "test_rows": 22106,
+    "train_groups": 49844,
+    "test_groups": 12454,
+    "groups_disjoint": true,
+    "split": "StratifiedGroupKFold first fold; 80/20 group-disjoint holdout",
+    "random_state": 42,
+    "knn_training_cap": 25000,
+    "svm_training_cap": 25000
+  },
+  "model_count_trained": 10,
+  "model_failures": {},
+  "simulator_model": "HistGradientBoosting",
+  "simulator_top_k": {
+    "top_5_percent": {
+      "flagged": 1106,
+      "capacity": 1106,
+      "capacity_utilization": 1.0,
+      "precision": 0.4538878842676311,
+      "recall": 0.1124551971326165,
+      "true_positives": 502,
+      "false_positives": 604,
+      "missed_no_shows": 3962,
+      "observed_no_show_rate_flagged": 0.4538878842676311,
+      "median_risk_flagged": 0.4277500117354862
+    },
+    "top_10_percent": {
+      "flagged": 2211,
+      "capacity": 2211,
+      "capacity_utilization": 1.0,
+      "precision": 0.4251469923111714,
+      "recall": 0.21057347670250895,
+      "true_positives": 940,
+      "false_positives": 1271,
+      "missed_no_shows": 3524,
+      "observed_no_show_rate_flagged": 0.4251469923111714,
+      "median_risk_flagged": 0.4024406709809017
+    },
+    "top_20_percent": {
+      "flagged": 4422,
+      "capacity": 4422,
+      "capacity_utilization": 1.0,
+      "precision": 0.386250565355043,
+      "recall": 0.3826164874551971,
+      "true_positives": 1708,
+      "false_positives": 2714,
+      "missed_no_shows": 2756,
+      "observed_no_show_rate_flagged": 0.386250565355043,
+      "median_risk_flagged": 0.3669398175944195
+    }
+  },
+  "simulator_thresholds": {
+    "0.25": {
+      "flagged": 8915,
+      "capacity": 20,
+      "capacity_utilization": 445.75,
+      "precision": 0.3366236679753225,
+      "recall": 0.6722670250896058,
+      "true_positives": 3001,
+      "false_positives": 5914,
+      "missed_no_shows": 1463,
+      "observed_no_show_rate_flagged": 0.3366236679753225,
+      "median_risk_flagged": 0.32025655978519485
+    },
+    "0.35": {
+      "flagged": 2956,
+      "capacity": 20,
+      "capacity_utilization": 147.8,
+      "precision": 0.4042625169147497,
+      "recall": 0.2676971326164875,
+      "true_positives": 1195,
+      "false_positives": 1761,
+      "missed_no_shows": 3269,
+      "observed_no_show_rate_flagged": 0.4042625169147497,
+      "median_risk_flagged": 0.38861598300258005
+    },
+    "0.50": {
+      "flagged": 58,
+      "capacity": 20,
+      "capacity_utilization": 2.9,
+      "precision": 0.6206896551724138,
+      "recall": 0.008064516129032258,
+      "true_positives": 36,
+      "false_positives": 22,
+      "missed_no_shows": 4428,
+      "observed_no_show_rate_flagged": 0.6206896551724138,
+      "median_risk_flagged": 0.5271061233356702
+    }
+  },
+  "metrics": [
+    {
+      "model": "HistGradientBoosting",
+      "accuracy": 0.7986971862842667,
+      "precision": 0.6206896551724138,
+      "recall": 0.008064516129032258,
+      "f1": 0.01592215833701902,
+      "roc_auc": 0.740284479669118,
+      "training_rows": 88420,
+      "fit_seconds": 8.47
+    },
+    {
+      "model": "Random Forest",
+      "accuracy": 0.5833710304894599,
+      "precision": 0.30584192439862545,
+      "recall": 0.8373655913978495,
+      "f1": 0.44804027328299173,
+      "roc_auc": 0.7327777836187593,
+      "training_rows": 88420,
+      "fit_seconds": 9.24
+    },
+    {
+      "model": "Gradient Boosting",
+      "accuracy": 0.7980638740613408,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "roc_auc": 0.7307454141184748,
+      "training_rows": 88420,
+      "fit_seconds": 29.78
+    },
+    {
+      "model": "Decision Tree",
+      "accuracy": 0.5885280014475708,
+      "precision": 0.30593262946204125,
+      "recall": 0.8178763440860215,
+      "f1": 0.44529820709842666,
+      "roc_auc": 0.7288528408908522,
+      "training_rows": 88420,
+      "fit_seconds": 2.08
+    },
+    {
+      "model": "AdaBoost",
+      "accuracy": 0.7980638740613408,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "roc_auc": 0.7260355704597086,
+      "training_rows": 88420,
+      "fit_seconds": 28.25
+    },
+    {
+      "model": "Extra Trees",
+      "accuracy": 0.6423143038089206,
+      "precision": 0.30354901289512726,
+      "recall": 0.5958781362007168,
+      "f1": 0.40220760565509944,
+      "roc_auc": 0.677298370335697,
+      "training_rows": 88420,
+      "fit_seconds": 32.37
+    },
+    {
+      "model": "Logistic Regression",
+      "accuracy": 0.6567900117615127,
+      "precision": 0.3129268000479214,
+      "recall": 0.5851254480286738,
+      "f1": 0.4077745687299977,
+      "roc_auc": 0.6660541953179505,
+      "training_rows": 88420,
+      "fit_seconds": 2.67
+    },
+    {
+      "model": "Support Vector Machine",
+      "accuracy": 0.7952139690581742,
+      "precision": 0.3463414634146341,
+      "recall": 0.015905017921146954,
+      "f1": 0.03041336474619833,
+      "roc_auc": 0.660116977335773,
+      "training_rows": 25000,
+      "fit_seconds": 3.38
+    },
+    {
+      "model": "K-Nearest Neighbors",
+      "accuracy": 0.7872523296842486,
+      "precision": 0.38758231420507994,
+      "recall": 0.09229390681003584,
+      "f1": 0.1490863036005066,
+      "roc_auc": 0.6439463407825655,
+      "training_rows": 25000,
+      "fit_seconds": 0.29
+    },
+    {
+      "model": "Gaussian Naive Bayes",
+      "accuracy": 0.5888898941463856,
+      "precision": 0.24396456256921373,
+      "recall": 0.49350358422939067,
+      "f1": 0.32651548836519934,
+      "roc_auc": 0.5633408473750527,
+      "training_rows": 88420,
+      "fit_seconds": 1.68
+    }
+  ]
+}

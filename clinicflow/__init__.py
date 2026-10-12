@@ -1,0 +1,2 @@
+"""ClinicFlow AI Python application."""
+
