@@ -1,1 +1,0 @@
-"""ClinicFlow regression tests."""
